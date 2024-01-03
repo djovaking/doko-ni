@@ -9,12 +9,12 @@ class HomePage extends Component {
       createElement(Header, { title: 'Home', to: '/home' }),
       createElement('main', {},
         createElement(Section, {},
+          createElement('img', { 
+            src: './src/media/accueil.png', // Remplacez ceci par le chemin de votre image
+            alt: 'Paris 2024 Image',
+            style: { width: '100%', marginBottom: '20px' } // Style pour la pleine largeur et un espacement en bas
+          }),
           createElement('div', { class: "home-title" },
-            createElement('img', { 
-              src: './src/media/accueil.png', // Remplacez ceci par le chemin de votre image
-              alt: 'Paris 2024 Image',
-              style: { width: '100%', marginBottom: '20px' } // Style pour la pleine largeur et un espacement en bas
-            }),
             createElement('h1', {}, "Paris 2024"),
             createElement('h3', {}, "Venez découvrir les lieux des JO de Paris 2024 !"),
             createElement(Countdown)
