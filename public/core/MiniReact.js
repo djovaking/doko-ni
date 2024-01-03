@@ -1,3 +1,4 @@
+// MiniReact.js
 import MiniReactDom from './MiniReactDom.js';
 
 export function createElement(type, props = {}, ...children) {
@@ -19,36 +20,30 @@ export function createElement(type, props = {}, ...children) {
 
   return element;
 }
+
 export class Component {
-  constructor(props = {}) {
+  constructor(props = {}, initialState = {}) {
     this.props = props;
     this.children = [];
-    this.state = this.state || {};
-
-    //bjinder un node à un component pour l'update du code, pour re-render le code on refait un render sur le root node avec le nouvel virtual dom
-    //genre this.node = node bla bla bla et dans le render on fait this.node = renderStructure(virtualDom)?
-    // quand un state change on re-render le root avec le nouveau virtual dom
-
+    this.previousState = {};
+    this.domNode = null; 
+    this.state = { ...initialState };
   }
 
-  componentDidUpdate() {
-    console.log("componentDidUpdate");
-  }
+  componentDidUpdate() {}
 
-  setState(newState) {
-    this.state = { ...this.state, ...newState };
+  setState(newState) { 
+    this.previousState = { ...this.state };
+    this.state = { ...newState };
     this.updateComponent();
-    console.log("new state: ", this.state);
   }
-  
+
   updateComponent() {
-   console.log("updateComponent medhod called");
-   const newVirtualDom = this.render();
-   MiniReactDom.update(newVirtualDom); 
-   this.componentDidUpdate();
+    if (this.domNode) {
+      const newVirtualDom = this.render();
+      MiniReactDom.update(this.domNode, newVirtualDom);
+    }
   }
 
-  render() {
-
-  }
+  render() {}
 }

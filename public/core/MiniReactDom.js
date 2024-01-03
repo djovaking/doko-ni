@@ -1,3 +1,4 @@
+// MiniReactDom.js
 import BrowserRouter from "../components/BrowserRouter.js";
 import routes from "../routes.js";
 
@@ -9,10 +10,19 @@ const MiniReactDom = {
     BrowserRouter.bind(this)(routes, rootElement);
   },
   
-  update: function (rootElement) {
-    console.log('update');
-   this.render(this.rootElement)
+  update: function (domNode, newVirtualDom) {
+    const newDomNode = this.renderStructure(newVirtualDom);
+    const parentNode = domNode.parentNode;
+    console.log('node', domNode);
+    if (parentNode) {
+      parentNode.replaceChild(newDomNode, domNode);
+      if (typeof newVirtualDom.type === "function") {
+        newVirtualDom.type.prototype.domNode = newDomNode;
+      }
+    }
   },
+  
+  
   renderStructure: function generateDom(structure) {
     try {
       let element;
@@ -25,7 +35,8 @@ const MiniReactDom = {
         element = document.createElement(structure.type);
       } else if (typeof structure.type === "function") {
         const component = new structure.type(structure.props, ...structure.children);
-        return this.renderStructure(component.render());
+        component.domNode = this.renderStructure(component.render());
+        return component.domNode;
       }
 
       if (structure.props) {

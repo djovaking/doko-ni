@@ -4,25 +4,20 @@ class Counter extends Component {
     constructor(props, ...children) {
       super(props);
       this.children = children;
-      this.state = { count: 0 }; // Initialize state with count
+      this.state = { count:  6}; // Initialize state with count
+      console.log("valeur du counter : ",this.state.count);
     }
-
-    componentDidUpdate() {
-       
-      }
-
+  
     increment = () => {
-        console.log("increment");
-        this.setState({ count: this.state.count + 1 });
-        console.log(this.state.count);
+      this.setState({ count: this.state.count + 1 });
     }
-
+  
     decrement = () => {
       if (this.state.count > 0) {
         this.setState({ count: this.state.count - 1 });
       }
     }
-
+  
     render() {
       return createElement(
         'section',
@@ -35,6 +30,7 @@ class Counter extends Component {
         ...this.children
       );
     }
-}
+  }
+  
 
 export default Counter;

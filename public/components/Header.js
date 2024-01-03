@@ -37,6 +37,11 @@ class Header extends Component {
           to: "/carte" ,
           icon: "map",
         }),
+        BrowserLink({
+          title: "info",
+          to: "/about",
+          icon: "event",
+        }),
         BrowserLink({ 
           title: "Spots", 
           to: "/spots",

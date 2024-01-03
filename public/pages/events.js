@@ -15,7 +15,7 @@ class Events extends Component {
         createElement(
           ScreenSection,
           {},
-          createElement(Counter, {}, "Counter 1"),
+          createElement(Counter, {}),
         ),
         createElement(
           ScreenSection,
