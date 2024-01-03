@@ -1,8 +1,17 @@
 import BrowserRouter from "../components/BrowserRouter.js";
+import routes from "../routes.js";
 
 const MiniReactDom = {
-  render: function (rootElement, routes) {
+  rootElement: null,
+
+  render: function (rootElement) {
+    this.rootElement = rootElement;
     BrowserRouter.bind(this)(routes, rootElement);
+  },
+  
+  update: function (rootElement) {
+    console.log('update');
+   this.render(this.rootElement)
   },
   renderStructure: function generateDom(structure) {
     try {
@@ -41,10 +50,6 @@ const MiniReactDom = {
       }
 
       if (structure.children) {
-        if(structure.type === "section"){
-          console.log("section");
-          console.log(structure.children);
-        }
         for (const child of structure.children) {
           let childElement;
           if (typeof child === 'string') {

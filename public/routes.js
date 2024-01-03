@@ -12,4 +12,4 @@ export default {
   "/events": Events,
   "/spots": Spots,
   "*": HomePage,
-};  
+};    
