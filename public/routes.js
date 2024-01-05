@@ -2,7 +2,7 @@ import about from "./pages/about.js";
 import HomePage from "./pages/HomePage.js";
 import Events from "./pages/events.js";
 import Carte from "./pages/carte.js";
-import Spots from "./pages/spots.js";
+import Lieux from "./pages/lieux.js";
 
 export default {
   "/": HomePage,
@@ -10,6 +10,6 @@ export default {
   "/about": about,
   "/carte": Carte,
   "/events": Events,
-  "/spots": Spots,
+  "/lieux": Lieux,
   "*": HomePage,
-};  
+};    

@@ -1,6 +1,7 @@
 import { Component, createElement } from "../core/MiniReact.js";
 import ScreenSection from "../components/Section.js";
 import Header from "../components/Header.js";
+import Counter from "../components/Counter.js";
 
 class Events extends Component {
   render() {
@@ -13,7 +14,8 @@ class Events extends Component {
         {},
         createElement(
           ScreenSection,
-          {}
+          {},
+          createElement(Counter, {}),
         ),
         createElement(
           ScreenSection,

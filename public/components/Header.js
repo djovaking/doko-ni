@@ -32,26 +32,20 @@ class Header extends Component {
           to: "/",
           icon: "home",
         }),
-        BrowserLink({
-          title: "Info",
-          to: "/about",
-          icon: "info",
-        }),
         BrowserLink({ 
           title: "Carte", 
           to: "/carte" ,
           icon: "map",
         }),
-        BrowserLink({ 
-          title: "Spots", 
-          to: "/spots",
-          icon: "place",
+        BrowserLink({
+          title: "info",
+          to: "/about",
+          icon: "event",
         }),
         BrowserLink({ 
-          title: "Listing", 
-          to: "/events" ,
-          icon: "calendar_today",
-
+          title: "Lieux", 
+          to: "/lieux" ,
+          icon: "place",
         }),
       ],
     };

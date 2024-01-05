@@ -7,7 +7,7 @@ class Footer extends Component {
       children: [
         {
           type: "TEXT_NODE",
-          content: "© Projet JO 2024 - ESGI (Sébastien HAREL - Rashmi BHAVSAR - Yannick LEMA)",
+          content: "footer",
         },
       ],
     };
